@@ -1,9 +1,7 @@
-use csv::{Reader, ReaderBuilder};
+use csv::ReaderBuilder;
 use serde::Deserialize;
 use std::collections::hash_set::HashSet;
 use std::env;
-use std::error::Error;
-use std::io;
 use vcard::properties::*;
 use vcard::values::email_value::EmailValue;
 use vcard::values::text::Text;
@@ -48,7 +46,9 @@ fn main() {
                     Set::from_hash_set(haus_category).unwrap(),
                 ));
                 vcard.categories = Some(Set::from_hash_set(categories).unwrap());
-                vcard.save_to_file(format!("{}.vcf", record.id)).unwrap();
+                vcard
+                    .save_to_file(format!("contacts/{}.vcf", record.id))
+                    .unwrap();
             }
             Err(_) => (),
         });
