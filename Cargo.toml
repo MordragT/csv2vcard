@@ -1,0 +1,12 @@
+[package]
+name = "csv-vcard"
+version = "0.1.0"
+authors = ["MordragT <scrat_games@gmx.de>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+vcard = "0.4.7"
+csv = "1.1.4"
+serde = { version = "1.0.117", features = ["derive"] }
